@@ -9,4 +9,9 @@ echo "installing sqlalchemy library"
 pip3 install sqlalchemy
 echo "installing mysql connector library"
 pip3 install mysql-connector-python-rf
+echo "installing psycopg2 library"
+sudo apt-get install libpq-dev python-dev
+pip install psycopg2
+echo "Finished Installing Libraries"
+
 
