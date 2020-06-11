@@ -6,7 +6,7 @@ import psycopg2
 from sqlalchemy import create_engine
 import config
 
-stocks_df = pd.read_csv('sentiment_stocks.csv')
+stocks_df = pd.read_csv('/home/ubuntu/sentiment_stock/sentiment_stocks.csv')
 stocks = stocks_df['Stock'].tolist()
 
 def ticker_sentiment(tickers):
