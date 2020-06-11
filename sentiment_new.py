@@ -1,8 +1,6 @@
 import pandas as pd
 import requests
 import datetime as dt
-import psycopg2
-# import os.path
 from sqlalchemy import create_engine
 import config
 
