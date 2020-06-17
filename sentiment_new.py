@@ -57,7 +57,7 @@ def sentiment(stocks):
 
     df_sentiment.set_index('ticker', inplace=True)
 
-    # sql_commit(df_sentiment)
+    sql_commit(df_sentiment)
 
     return df_sentiment
 
@@ -72,12 +72,12 @@ def ticker_id_match(stock):
     return ticker_id_dict.get(stock)
 
 
-# def sql_commit(df):
-#     engine = create_engine(f"postgresql://{config.user}:{config.passwd}@{config.host}/{config.db_name}")
-#
-#     df.reset_index(inplace=True)
-#
-#     df.to_sql('sentiment', con=engine, if_exists='append', index=False)
+def sql_commit(df):
+    engine = create_engine(f"postgresql://{config.user}:{config.passwd}@{config.host}/{config.db_name}")
+
+    df.reset_index(inplace=True)
+
+    df.to_sql('sentiment', con=engine, if_exists='append', index=False)
 
 
 print('Starting Script')
@@ -86,7 +86,6 @@ time = dt.datetime.today().strftime("%m/%d/%Y %H:%M")
 time = str(time)
 print('Scrape Complete: ', time)
 
-sentiment_df.to_csv('volume_sent_test.csv')
 
 
 
