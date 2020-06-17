@@ -81,7 +81,7 @@ def sql_commit(df):
 
 
 print('Starting Script')
-sentiment_df = sentiment(stocks[:100])
+sentiment_df = sentiment(stocks)
 time = dt.datetime.today().strftime("%m/%d/%Y %H:%M")
 time = str(time)
 print('Scrape Complete: ', time)
