@@ -24,12 +24,15 @@ def ticker_followers(tickers):
 
 def extract_followers(text):
     word = text.find('strong')
-    if word != -1:
-        followers = text[word+7: word+16]
-        left_arrow = followers.find('<')
-        watchers = followers[0:left_arrow].replace(',', '')
-        return int(watchers)
-    else:
+    try:
+        if word != -1:
+            followers = text[word+7: word+16]
+            left_arrow = followers.find('<')
+            watchers = followers[0:left_arrow].replace(',', '')
+            return int(watchers)
+        else:
+            return 0
+    except:
         return 0
 
 
