@@ -6,9 +6,8 @@ import os
 import config
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-st_tickers = pd.read_csv('2020-04-26.csv')
+st_tickers = pd.read_csv('2020-06-18.csv')
 tickers = st_tickers['AAC'].tolist()
-
 
 def ticker_followers(tickers):
     follower_list = []
@@ -43,7 +42,7 @@ def watchers(stocks):
 
     df_watchers.set_index('ticker', inplace=True)
 
-    # sql_commit(df_sentiment)
+    sql_commit(df_watchers)
 
     return df_watchers
 
@@ -67,11 +66,10 @@ def sql_commit(df):
 
 
 print('Starting Script')
-watchers_df = watchers(tickers[:100])
+watchers_df = watchers(tickers)
 time = dt.datetime.today().strftime("%m/%d/%Y %H:%M")
 time = str(time)
 print('Scrape Complete: ', time)
 
-watchers_df.to_csv('watchers.csv')
 
 
