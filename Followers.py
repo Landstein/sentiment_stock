@@ -14,13 +14,10 @@ def ticker_followers(tickers):
     time = dt.datetime.today().strftime("%m/%d/%Y %H:%M")
     time = str(time)
     print('Starting Scrape: ', time)
-    count = 0
     for ticker in tickers:
-        count += 1
         r = requests.get(f'https://stocktwits.com/symbol/{ticker}')
         text = r.text
         follower_list.append([ticker, time, extract_followers(text)])
-        print(count, ticker)
 
     return follower_list
 
